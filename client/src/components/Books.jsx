@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchAllBooks } from "../Redux/BookListReducer/action";
-import { CiEdit } from "react-icons/ci";
 import Banner from "../pages/Banner";
 import Footer from "../pages/Footer";
 import { Spinner } from "@chakra-ui/react"; // Import Spinner from Chakra UI
@@ -120,10 +119,10 @@ export const Books = () => {
               books
                 .map((item, i) => (
                   <tr key={i + 1} className="border hover:bg-neutral-200">
-                    <td className="py-2 px-4 border-r">{item.title}</td>
-                    <td className="py-2 px-4 border-r">{item.author}</td>
-                    <td className="py-2 px-4 border-r">{item.publishedYear}</td>
-                    <td className="py-2 px-4 border-r">
+                    <td className="py-2 px-4 border-r text-center">{item.title}</td>
+                    <td className="py-2 px-4 border-r text-center">{item.author}</td>
+                    <td className="py-2 px-4 border-r text-center">{item.publishedYear}</td>
+                    <td className="py-2 px-4 border-r text-center">
                       {formatDateTime(item.createdAt)}
                     </td>
                   </tr>
