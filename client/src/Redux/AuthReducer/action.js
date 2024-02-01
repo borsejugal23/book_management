@@ -7,7 +7,7 @@ import {
   SIGNUP_SUCCESS,
 } from "../actionTypes";
 
-const apiUrl = "http://localhost:8080";
+const apiUrl = "https://book-manager-k37e.onrender.com";
 
 const url = `${apiUrl}/user`;
 

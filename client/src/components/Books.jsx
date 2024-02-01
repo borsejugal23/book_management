@@ -24,9 +24,7 @@ const formatDateTime = (dateTimeString) => {
 
 export const Books = () => {
   const dispatch = useDispatch();
-  const { isLoading, isError, books } = useSelector(
-    (store) => store.bookReducer
-  );
+  const { isLoading, books } = useSelector((store) => store.bookReducer);
   let id = localStorage.getItem("id");
   // Split the roles into an array using a comma as a separator
   const rolesString = localStorage.getItem("roles") || "";
@@ -59,7 +57,10 @@ export const Books = () => {
           <tbody>
             {isLoading ? ( // Show spinner if data is loading
               <tr>
-                <td colSpan={role.includes("CREATOR") ? 5 : 4} className="text-center py-4">
+                <td
+                  colSpan={role.includes("CREATOR") ? 5 : 4}
+                  className="text-center py-4"
+                >
                   <div className="flex justify-center items-center">
                     <Spinner
                       thickness="3px"
@@ -73,26 +74,31 @@ export const Books = () => {
               </tr>
             ) : role.includes("CREATOR") ? (
               books?.filter((item) => item.creator === id).length > 0 ? (
-                books?.filter((item) => item.creator === id).map((item, i) => (
-                  <tr key={i + 1} className="border hover:bg-neutral-200">
-                    <td className="py-2 px-4 border-r">{item.title}</td>
-                    <td className="py-2 px-4 border-r">{item.author}</td>
-                    <td className="py-2 px-4 border-r">{item.publishedYear}</td>
-                    <td className="py-2 px-4 border-r">
-                      {formatDateTime(item.createdAt)}
-                    </td>
-                    {role.includes("CREATOR") && (
-                      <td className="py-2 px-4">
-                        <button className="inline-block p-2 mx-1 mb-2 md:mb-0 border border-blue-300 hover:border-blue-600">
-                          <CiEdit />
-                        </button>
-                        <button className="inline-block p-2 mx-1 mb-2 md:mb-0 border border-red-300 hover:border-red-600">
-                          <AiTwotoneDelete />
-                        </button>
+                books
+                  ?.filter((item) => item.creator === id)
+                  .map((item, i) => (
+                    <tr key={i + 1} className="border hover:bg-neutral-200">
+                      <td className="py-2 px-4 border-r">{item.title}</td>
+                      <td className="py-2 px-4 border-r">{item.author}</td>
+                      <td className="py-2 px-4 border-r">
+                        {item.publishedYear}
                       </td>
-                    )}
-                  </tr>
-                )).reverse()
+                      <td className="py-2 px-4 border-r">
+                        {formatDateTime(item.createdAt)}
+                      </td>
+                      {role.includes("CREATOR") && (
+                        <td className="py-2 px-4">
+                          <button className="inline-block p-2 mx-1 mb-2 md:mb-0 border border-blue-300 hover:border-blue-600">
+                            <CiEdit />
+                          </button>
+                          <button className="inline-block p-2 mx-1 mb-2 md:mb-0 border border-red-300 hover:border-red-600">
+                            <AiTwotoneDelete />
+                          </button>
+                        </td>
+                      )}
+                    </tr>
+                  ))
+                  .reverse()
               ) : (
                 <tr>
                   <td colSpan={5} className="text-center py-4">
@@ -109,9 +115,9 @@ export const Books = () => {
                   </td>
                 </tr>
               )
-            ) : (
-              books.length > 0 ? (
-                books.map((item, i) => (
+            ) : books.length > 0 ? (
+              books
+                .map((item, i) => (
                   <tr key={i + 1} className="border hover:bg-neutral-200">
                     <td className="py-2 px-4 border-r">{item.title}</td>
                     <td className="py-2 px-4 border-r">{item.author}</td>
@@ -120,23 +126,23 @@ export const Books = () => {
                       {formatDateTime(item.createdAt)}
                     </td>
                   </tr>
-                )).reverse()
-              ) : (
-                <tr>
-                  <td colSpan={4} className="text-center py-4">
-                    <div className="flex flex-col items-center justify-center text-center">
-                      <img
-                        src="https://students.masaischool.com/static/media/assignment-article.306c336bf8778468914b433407306985.svg"
-                        alt="Data not found"
-                        className="w-1/6 md:w-1/3 lg:w-24"
-                      />
-                      <h1 className="text-lg md:text-md lg:text-lg">
-                        Data not found
-                      </h1>
-                    </div>
-                  </td>
-                </tr>
-              )
+                ))
+                .reverse()
+            ) : (
+              <tr>
+                <td colSpan={4} className="text-center py-4">
+                  <div className="flex flex-col items-center justify-center text-center">
+                    <img
+                      src="https://students.masaischool.com/static/media/assignment-article.306c336bf8778468914b433407306985.svg"
+                      alt="Data not found"
+                      className="w-1/6 md:w-1/3 lg:w-24"
+                    />
+                    <h1 className="text-lg md:text-md lg:text-lg">
+                      Data not found
+                    </h1>
+                  </div>
+                </td>
+              </tr>
             )}
           </tbody>
         </table>
