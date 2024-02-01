@@ -32,7 +32,7 @@ const LoginForm = () => {
   };
 
   const handleCallback = (data) => {
-    console.log(data);
+    // console.log(data);
     // Enable the submit button after the login process completes
     setIsSubmitting(false);
 

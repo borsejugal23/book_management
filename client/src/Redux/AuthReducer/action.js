@@ -21,7 +21,7 @@ export const login = (query) => async (dispatch) => {
       body: JSON.stringify(query?.formData),
     });
     let data = await res.json();
-    console.log(data);
+    // console.log(data);
     query?.callback(data);
     if (res?.ok) {
       localStorage.setItem("token", data.token);

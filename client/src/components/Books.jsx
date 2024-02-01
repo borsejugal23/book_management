@@ -44,7 +44,7 @@ export const Books = () => {
       <div className="w-11/12 m-auto overflow-x-auto">
         <div className="flex items-center justify-between  mb-1 p-3">
           <h1 className="text-lg font-bold">Total Books: {books.length}</h1>
-          <AddBook />
+          {role.includes("CREATOR")&&<AddBook />}
         </div>
 
         <table className="min-w-full bg-white border border-gray-300 ">
