@@ -94,9 +94,6 @@ export const Books = () => {
                       </td>
                       {role.includes("CREATOR") && (
                         <td className="py-2 px-4 text-center">
-                          <button className="inline-block p-2 mx-1 mb-2 md:mb-0 border border-blue-300 hover:border-blue-600 rounded-sm">
-                            <CiEdit />
-                          </button>
                           <DeleteBook bookId={item._id}/>
                         </td>
                       )}
