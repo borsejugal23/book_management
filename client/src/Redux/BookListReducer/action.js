@@ -38,11 +38,11 @@ export const fetchAllBooks = async (dispatch) => {
 
 export const addBook = (bookData) => async (dispatch) => {
   dispatch({ type: FETCH_DATA_REQUEST });
-
+  let res;
   try {
     const token = getToken();
 
-    const res = await fetch(url, {
+    res = await fetch(url, {
       method: "POST",
       headers: {
         Authorization: `${token}`,
@@ -63,6 +63,7 @@ export const addBook = (bookData) => async (dispatch) => {
     // Handle error, dispatch appropriate action or perform other logic
     dispatch({ type: FETCH_DATA_FAILURE });
   }
+  return res;
 };
 
 export const updateBook = async (dispatch, bookId, updatedData) => {
@@ -95,13 +96,13 @@ export const updateBook = async (dispatch, bookId, updatedData) => {
 };
 
 export const deleteBook = (bookId) => async (dispatch) => {
-  console.log(bookId)
+  console.log(bookId);
   dispatch({ type: FETCH_DATA_REQUEST });
-
+  let res;
   try {
     const token = getToken();
 
-    const res = await fetch(`${url}/delete/${bookId?.bookId}`, {
+    res = await fetch(`${url}/delete/${bookId?.bookId}`, {
       method: "DELETE",
       headers: {
         Authorization: `${token}`,
@@ -110,7 +111,7 @@ export const deleteBook = (bookId) => async (dispatch) => {
 
     const data = await res.json();
 
-   bookId?.callback(data)
+    bookId?.callback(data);
     if (res.ok) {
       // Handle success, dispatch appropriate action or perform other logic
     } else {
@@ -121,4 +122,5 @@ export const deleteBook = (bookId) => async (dispatch) => {
     // Handle error, dispatch appropriate action or perform other logic
     dispatch({ type: FETCH_DATA_FAILURE });
   }
+  return res;
 };

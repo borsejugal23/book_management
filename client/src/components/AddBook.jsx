@@ -22,10 +22,14 @@ export const AddBook = () => {
   };
 
   const handleAddBook = () => {
-    dispatch(addBook(formData));
-    dispatch(fetchAllBooks)
+    dispatch(addBook(formData))
+      .then((result) => {
+        dispatch(fetchAllBooks);
+      })
+      .catch((error) => {
+        dispatch(fetchAllBooks);
+      });
     setModalOpen(false);
-    // window.location.reload();
     setFormData({
       title: "",
       author: "",
@@ -44,7 +48,6 @@ export const AddBook = () => {
       </button>
 
       <Modal isOpen={isModalOpen} closeModal={() => setModalOpen(false)}>
-
         <form className="mx-auto max-w-lg">
           <div className="mb-4">
             <label
@@ -99,7 +102,6 @@ export const AddBook = () => {
               className="mt-1 p-2 w-full border border-gray-300 rounded-md"
             />
           </div>
-
 
           <div className="mt-4">
             <button

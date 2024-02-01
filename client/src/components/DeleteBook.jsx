@@ -14,10 +14,15 @@ export const DeleteBook = ({ bookId }) => {
   const handleDeleteBook = () => {
     console.log(bookId);
     // Dispatch the deleteBook action
-    dispatch(deleteBook({ bookId: bookId, callback: handleCallback }));
+    dispatch(deleteBook({ bookId: bookId, callback: handleCallback }))
+      .then((result) => {
+        dispatch(fetchAllBooks);
+      })
+      .catch((error) => {
+        dispatch(fetchAllBooks);
+      });
 
     // Dispatch the fetchAllBooks action to get the updated list
-    dispatch(fetchAllBooks);
 
     // Close the modal after dispatching
     setModalOpen(false);
@@ -31,7 +36,7 @@ export const DeleteBook = ({ bookId }) => {
         duration: 3000,
         isClosable: true,
       });
-    } 
+    }
   };
   return (
     <>
