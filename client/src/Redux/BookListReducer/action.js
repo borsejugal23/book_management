@@ -51,7 +51,7 @@ export const addBook = (bookData) => async (dispatch) => {
       body: JSON.stringify(bookData),
     });
 
-    const data = await res.json();
+    // const data = await res.json();
 
     if (res.ok) {
       // Handle success, dispatch appropriate action or perform other logic
@@ -101,15 +101,16 @@ export const deleteBook = (bookId) => async (dispatch) => {
   try {
     const token = getToken();
 
-    const res = await fetch(`${url}/delete/${bookId}`, {
+    const res = await fetch(`${url}/delete/${bookId?.bookId}`, {
       method: "DELETE",
       headers: {
         Authorization: `${token}`,
       },
     });
 
-    // const data = await res.json();
+    const data = await res.json();
 
+   bookId?.callback(data)
     if (res.ok) {
       // Handle success, dispatch appropriate action or perform other logic
     } else {

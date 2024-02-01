@@ -3,15 +3,18 @@ import { useDispatch } from "react-redux";
 import Modal from "./Modal";
 import { deleteBook, fetchAllBooks } from "../Redux/BookListReducer/action";
 import { AiTwotoneDelete } from "react-icons/ai";
+import { useToast } from "@chakra-ui/react";
 
 export const DeleteBook = ({ bookId }) => {
-    const dispatch = useDispatch();
-    const [isModalOpen, setModalOpen] = useState(false);
-    
-    const handleDeleteBook = () => {
-      console.log(bookId)
+  const toast = useToast();
+
+  const dispatch = useDispatch();
+  const [isModalOpen, setModalOpen] = useState(false);
+
+  const handleDeleteBook = () => {
+    console.log(bookId);
     // Dispatch the deleteBook action
-    dispatch(deleteBook(bookId));
+    dispatch(deleteBook({ bookId: bookId, callback: handleCallback }));
 
     // Dispatch the fetchAllBooks action to get the updated list
     dispatch(fetchAllBooks);
@@ -19,7 +22,17 @@ export const DeleteBook = ({ bookId }) => {
     // Close the modal after dispatching
     setModalOpen(false);
   };
-
+  const handleCallback = (data) => {
+    if (data.msg) {
+      toast({
+        position: "top",
+        title: `${data?.msg}`,
+        status: "success",
+        duration: 3000,
+        isClosable: true,
+      });
+    } 
+  };
   return (
     <>
       <button
