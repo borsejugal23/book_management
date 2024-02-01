@@ -95,6 +95,7 @@ export const updateBook = async (dispatch, bookId, updatedData) => {
 };
 
 export const deleteBook = (bookId) => async (dispatch) => {
+  console.log(bookId)
   dispatch({ type: FETCH_DATA_REQUEST });
 
   try {

@@ -5,10 +5,11 @@ import { deleteBook, fetchAllBooks } from "../Redux/BookListReducer/action";
 import { AiTwotoneDelete } from "react-icons/ai";
 
 export const DeleteBook = ({ bookId }) => {
-  const dispatch = useDispatch();
-  const [isModalOpen, setModalOpen] = useState(false);
-
-  const handleDeleteBook = () => {
+    const dispatch = useDispatch();
+    const [isModalOpen, setModalOpen] = useState(false);
+    
+    const handleDeleteBook = () => {
+      console.log(bookId)
     // Dispatch the deleteBook action
     dispatch(deleteBook(bookId));
 

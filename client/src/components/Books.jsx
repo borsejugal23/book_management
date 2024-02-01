@@ -32,7 +32,7 @@ export const Books = () => {
   useEffect(() => {
     dispatch(fetchAllBooks);
   }, []);
-  console.log(books, id);
+  // console.log(books, id);
   return (
     <>
       <Banner />

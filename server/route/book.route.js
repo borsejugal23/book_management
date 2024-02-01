@@ -73,9 +73,9 @@ bookRouter.delete('/delete/:bookId', auth, roleBaseAuth,async (req, res) => {
       return res.status(404).json({ msg: 'Book not found' });
     }
 
-    res.status(200).json({ msg: 'Book deleted successfully', book: deletedBook });
+   return  res.status(200).json({ msg: 'Book deleted successfully', book: deletedBook });
   } catch (error) {
-    res.status(500).json({ error: error.message });
+   return  res.status(500).json({ error: error.message });
   }
 });
 
