@@ -41,12 +41,12 @@ export const Books = () => {
       <br />
       <br />
       <br />
-      <div className="w-11/12 m-auto overflow-x-auto">
-        <div className="flex items-center justify-between  mb-1 p-3 overflow-hidden">
+      <div className=" w-11/12 m-auto flex items-center justify-between mb-1 p-3">
           <h1 className="text-lg font-bold">Total Books: {role.includes("CREATOR") ? 
               books?.filter((item) => item.creator === id).length : books.length}</h1>
           {role.includes("CREATOR")&&<AddBook />}
         </div>
+      <div className="w-11/12 m-auto overflow-x-auto">
 
         <table className="min-w-full bg-white border border-gray-300 ">
           <thead>
@@ -94,7 +94,7 @@ export const Books = () => {
                       </td>
                       {role.includes("CREATOR") && (
                         <td className="py-2 px-4 text-center">
-                          <button className="inline-block p-2 mx-1 mb-2 md:mb-0 border border-blue-300 hover:border-blue-600">
+                          <button className="inline-block p-2 mx-1 mb-2 md:mb-0 border border-blue-300 hover:border-blue-600 rounded-sm">
                             <CiEdit />
                           </button>
                           <DeleteBook bookId={item._id}/>

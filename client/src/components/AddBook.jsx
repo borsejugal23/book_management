@@ -40,7 +40,7 @@ export const AddBook = () => {
   return (
     <>
       <button
-        className="flex items-center px-4 py-2 bg-blue-500 text-white hover:bg-blue-700 cursor-pointer"
+        className="flex items-center px-4 py-2 bg-blue-500 text-white hover:bg-blue-700 cursor-pointer rounded-sm"
         onClick={() => setModalOpen(true)}
       >
         <IoMdAddCircleOutline className="mr-2" />
@@ -106,7 +106,7 @@ export const AddBook = () => {
           <div className="mt-4">
             <button
               type="button"
-              className="px-4 py-2 bg-blue-500 text-white hover:bg-blue-700 cursor-pointer w-full"
+              className="px-4 py-2 bg-blue-500 text-white hover:bg-blue-700 cursor-pointer w-full rounded-sm"
               onClick={handleAddBook}
             >
               Submit

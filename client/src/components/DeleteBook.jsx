@@ -41,7 +41,7 @@ export const DeleteBook = ({ bookId }) => {
   return (
     <>
       <button
-        className="inline-block p-2 mx-1 mb-2 md:mb-0 border border-red-300 hover:border-red-600"
+        className="inline-block p-2 mx-1 mb-2 md:mb-0 border border-red-300 hover:border-red-600 rounded-sm"
         onClick={() => setModalOpen(true)}
       >
         <AiTwotoneDelete />
@@ -55,13 +55,13 @@ export const DeleteBook = ({ bookId }) => {
 
           <div className="flex justify-end">
             <button
-              className="px-4 py-2 bg-red-500 text-white hover:bg-red-700 cursor-pointer mr-2"
+              className="px-4 py-2 bg-red-500 text-white hover:bg-red-700 cursor-pointer mr-2 rounded-sm"
               onClick={handleDeleteBook}
             >
               Confirm
             </button>
             <button
-              className="px-4 py-2 bg-gray-300 text-gray-800 hover:bg-gray-400 cursor-pointer"
+              className="px-4 py-2 bg-gray-300 text-gray-800 hover:bg-gray-400 cursor-pointer rounded-sm"
               onClick={() => setModalOpen(false)}
             >
               Cancel
