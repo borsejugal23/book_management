@@ -6,9 +6,9 @@ const bookRouter = express.Router();
 
 
 const roleBaseAuth=(allRole)=> (req, res, next)=>{
-  
+  console.log(req.user)
   const isRole= allRole.some(role => req.user.roles.includes(role))
-
+  console.log(isRole)
   if(isRole) {
     next()
   }
@@ -45,7 +45,7 @@ bookRouter.post('/', auth, roleBaseAuth(["CREATOR"]), async (req, res) => {
 });
 
 // Patch a new book
-bookRouter.patch('/:bookId', auth, roleBaseAuth, async (req, res) => {
+bookRouter.patch('/:bookId', auth, roleBaseAuth(["CREATOR"]), async (req, res) => {
   try {
     const { bookId } = req.params;
     const book = await Book.findOneAndUpdate({_id: bookId}, {...req.body})
@@ -56,27 +56,24 @@ bookRouter.patch('/:bookId', auth, roleBaseAuth, async (req, res) => {
 });
 
 // DELETE a book (accessible only to "CREATOR" role)
-bookRouter.delete('/delete/:bookId', auth, roleBaseAuth,async (req, res) => {
+bookRouter.delete('/delete/:bookId', auth, roleBaseAuth(["CREATOR"]), async (req, res) => {
   try {
-    const { user } = req;
     const { bookId } = req.params;
-
-    // Check if the user has the "CREATOR" role
-    if (!user.role.includes('CREATOR')) {
-      return res.status(403).json({ msg: 'Permission denied' });
-    }
-
+    // console.log(bookId)
+    
+   
     // Delete the book by ID
-    const deletedBook = await Book.findByIdAndDelete(bookId);
+    const deletedBook = await Book.findByIdAndDelete({_id:bookId});
 
     if (!deletedBook) {
       return res.status(404).json({ msg: 'Book not found' });
     }
 
-   return  res.status(200).json({ msg: 'Book deleted successfully', book: deletedBook });
+    return res.status(200).json({ msg: 'Book deleted successfully', book: deletedBook });
   } catch (error) {
-   return  res.status(500).json({ error: error.message });
+    return res.status(500).json({ error: error.message });
   }
 });
+
 
 module.exports = bookRouter;
