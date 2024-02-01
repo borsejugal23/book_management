@@ -36,7 +36,7 @@ export const fetchAllBooks = async (dispatch) => {
   }
 };
 
-export const addBook = async (dispatch, bookData) => {
+export const addBook = (bookData) => async (dispatch) => {
   dispatch({ type: FETCH_DATA_REQUEST });
 
   try {
@@ -45,7 +45,7 @@ export const addBook = async (dispatch, bookData) => {
     const res = await fetch(url, {
       method: "POST",
       headers: {
-        Authorization: `Bearer ${token}`,
+        Authorization: `${token}`,
         "Content-Type": "application/json",
       },
       body: JSON.stringify(bookData),
@@ -94,20 +94,20 @@ export const updateBook = async (dispatch, bookId, updatedData) => {
   }
 };
 
-export const deleteBook = async (dispatch, bookId) => {
+export const deleteBook = (bookId) => async (dispatch) => {
   dispatch({ type: FETCH_DATA_REQUEST });
 
   try {
     const token = getToken();
 
-    const res = await fetch(`${url}/${bookId}`, {
+    const res = await fetch(`${url}/delete/${bookId}`, {
       method: "DELETE",
       headers: {
-        Authorization: `Bearer ${token}`,
+        Authorization: `${token}`,
       },
     });
 
-    const data = await res.json();
+    // const data = await res.json();
 
     if (res.ok) {
       // Handle success, dispatch appropriate action or perform other logic

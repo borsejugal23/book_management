@@ -38,7 +38,7 @@ bookRouter.post('/', auth, roleBaseAuth(["CREATOR"]), async (req, res) => {
     
     const newBook = new Book({creator: userID, title, author, publishedYear,createdAt });
     await newBook.save();
-    res.status(201).json({ msg: 'Book created successfully', book: newBook });
+    res.status(201).json({ msg: 'Book added successfully', book: newBook });
   } catch (error) {
     res.status(500).json({ error: error.message });
   }

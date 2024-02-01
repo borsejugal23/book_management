@@ -2,11 +2,11 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchAllBooks } from "../Redux/BookListReducer/action";
 import { CiEdit } from "react-icons/ci";
-import { AiTwotoneDelete } from "react-icons/ai";
 import Banner from "../pages/Banner";
 import Footer from "../pages/Footer";
 import { Spinner } from "@chakra-ui/react"; // Import Spinner from Chakra UI
-
+import { AddBook } from "./AddBook";
+import { DeleteBook } from "./DeleteBook";
 const formatDateTime = (dateTimeString) => {
   const options = {
     day: "numeric",
@@ -42,6 +42,11 @@ export const Books = () => {
       <br />
       <br />
       <div className="w-11/12 m-auto overflow-x-auto">
+        <div className="flex items-center justify-between  mb-1 p-3">
+          <h1 className="text-lg font-bold">Total Books: {books.length}</h1>
+          <AddBook />
+        </div>
+
         <table className="min-w-full bg-white border border-gray-300 ">
           <thead>
             <tr className="bg-gray-100">
@@ -91,9 +96,7 @@ export const Books = () => {
                           <button className="inline-block p-2 mx-1 mb-2 md:mb-0 border border-blue-300 hover:border-blue-600">
                             <CiEdit />
                           </button>
-                          <button className="inline-block p-2 mx-1 mb-2 md:mb-0 border border-red-300 hover:border-red-600">
-                            <AiTwotoneDelete />
-                          </button>
+                          <DeleteBook bookId={item._id}/>
                         </td>
                       )}
                     </tr>

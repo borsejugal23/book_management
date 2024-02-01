@@ -17,7 +17,7 @@ const Banner = () => {
   // console.log(roles);
   return (
     <>
-      <nav className="bg-zinc-400 shadow-sm  p-4 flex justify-between items-center">
+      <nav className="bg-zinc-400 shadow-sm  p-3 flex justify-between items-center">
         <h1 className="text-white text-xl">Books Store</h1>
         <div className="">
           <p className="text-white text-md">User: {name}</p>
