@@ -42,8 +42,9 @@ export const Books = () => {
       <br />
       <br />
       <div className="w-11/12 m-auto overflow-x-auto">
-        <div className="flex items-center justify-between  mb-1 p-3">
-          <h1 className="text-lg font-bold">Total Books: {books.length}</h1>
+        <div className="flex items-center justify-between  mb-1 p-3 overflow-hidden">
+          <h1 className="text-lg font-bold">Total Books: {role.includes("CREATOR") ? 
+              books?.filter((item) => item.creator === id).length : books.length}</h1>
           {role.includes("CREATOR")&&<AddBook />}
         </div>
 
@@ -83,16 +84,16 @@ export const Books = () => {
                   ?.filter((item) => item.creator === id)
                   .map((item, i) => (
                     <tr key={i + 1} className="border hover:bg-neutral-200">
-                      <td className="py-2 px-4 border-r">{item.title}</td>
-                      <td className="py-2 px-4 border-r">{item.author}</td>
-                      <td className="py-2 px-4 border-r">
+                      <td className="py-2 px-4 border-r text-center">{item.title}</td>
+                      <td className="py-2 px-4 border-r text-center">{item.author}</td>
+                      <td className="py-2 px-4 border-r text-center">
                         {item.publishedYear}
                       </td>
-                      <td className="py-2 px-4 border-r">
+                      <td className="py-2 px-4 border-r text-center">
                         {formatDateTime(item.createdAt)}
                       </td>
                       {role.includes("CREATOR") && (
-                        <td className="py-2 px-4">
+                        <td className="py-2 px-4 text-center">
                           <button className="inline-block p-2 mx-1 mb-2 md:mb-0 border border-blue-300 hover:border-blue-600">
                             <CiEdit />
                           </button>
