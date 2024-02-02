@@ -77,15 +77,13 @@ userRouter.post("/login", async (req, res) => {
           },
           process.env.SECREAT_KEY
         );
-        return res
-          .status(200)
-          .json({
-            msg: "Login successfully",
-            token: token,
-            roles: existinguser.roles,
-            id:existinguser._id,
-            name:existinguser.name
-          });
+        return res.status(200).json({
+          msg: "Login successfully",
+          token: token,
+          roles: existinguser.roles,
+          id: existinguser._id,
+          name: existinguser.name,
+        });
       } else {
         return res.status(400).json({ msg: "Wrong credential" });
       }

@@ -38,10 +38,9 @@ export const Books = () => {
       <br />
       <br />
       <br />
-      <br />
-      <br />
+      
       <div className=" w-11/12 m-auto flex items-center justify-between mb-1 p-3">
-          <h1 className="text-lg font-bold">Total Books: {role.includes("CREATOR") ? 
+          <h1 className="text-xl font-bold">Total Books: {role.includes("CREATOR") ? 
               books?.filter((item) => item.creator === id).length : books.length}</h1>
           {role.includes("CREATOR")&&<AddBook />}
         </div>
