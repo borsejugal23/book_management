@@ -44,21 +44,21 @@
 
 ## Interactive Features
 
-- **Category Enhancements:**
+- **Role Based Authentication**
   - Implements a fully functional category with multiple filters for a seamless user experience.
   - Optimized queries to ensure quick data retrieval for enhanced performance.
 
-- **Like & Dislike:**
-  - Implements Like and Dislike for the data grid, allowing users to choose better product through results efficiently.
+- **Login & Signup:**
+  - Implements Login and Signup allowing users to choose a role to results efficiently.
 
-- **Popup for Detailed Data:**
-  - Provides a popup interface to display detailed information when an item is clicked in the data grid.
+- **Modal**
+  - Provides a popup interface to ADD  and DELETE a Book. 
 
 ## Authentication
 
 - **User Authentication:**
   - Enables user signup, login, and logout functionalities.
-  - Implements secure authentication mechanisms to protect user data.
+  - Implements secure authentication mechanisms based on user role to protect user data.
 
 - **Private Route for Landing Page:**
   - Ensures that the landing page is accessible only to authenticated users, enhancing privacy and security.
@@ -71,9 +71,9 @@
 
 ## Deployment
 
-- The application is deployed at [Render](https://grenn-catalystor.onrender.com).
+- The application is deployed at [Render](https://book-manager-k37e.onrender.com).
 
-- Explore the live application on [Vercel](https://green-catalysator.vercel.app/).
+- Explore the live application on [Vercel](https://book-management-jet.vercel.app/).
 
 
 ## Application View
