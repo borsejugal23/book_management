@@ -81,19 +81,18 @@
 
 ## Login Page
 
-![Screenshot 2024-02-12 091527](https://github.com/borsejugal23/Green-Catalysator/assets/115457172/0e803035-ad0d-4180-9c42-e815b4670598)
+
+![Screenshot 2024-02-13 145400](https://github.com/borsejugal23/book_management/assets/115457172/6a271ffb-bbdf-4875-a77d-2c008e9f070c)
 
 
 ## Landing Page
 
-![Screenshot 2024-02-12 092330](https://github.com/borsejugal23/Green-Catalysator/assets/115457172/822bb299-a76c-4809-9ffc-56aba77ed4db)
 
-## Filter Products
-![Screenshot 2024-02-12 092402](https://github.com/borsejugal23/Green-Catalysator/assets/115457172/edec28cc-20c9-4907-8a25-b22e89f96e25)
+![Screenshot 2024-02-13 145453](https://github.com/borsejugal23/book_management/assets/115457172/94311983-6ba4-42f2-8075-61971c161fe4)
 
 
 ## PopUP
 
-![Screenshot 2024-02-12 092454](https://github.com/borsejugal23/Green-Catalysator/assets/115457172/d1ba6bbb-b7a2-4ff0-bb5b-0bc7e9865eef)
 
 
+![Screenshot 2024-02-13 145501](https://github.com/borsejugal23/book_management/assets/115457172/d01a869b-a773-4e1d-a995-77578c37fab4)
